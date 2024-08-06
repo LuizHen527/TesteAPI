@@ -139,3 +139,6 @@ C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\ne
 C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\bin\Debug\net8.0\Moq.dll
+C:\Users\38606125814\Desktop\Projetos\Exercicios\APITestes\TesteAPI\obj\Debug\net8.0\TesteAPI.sourcelink.json

@@ -7,7 +7,7 @@ namespace TesteAPI.Domains
     public class Product
     {
         [Key]
-        public int IdProduct {  get; set; }
+        public Guid IdProduct {  get; set; } = Guid.NewGuid();
 
         [Column("Name", TypeName = "nvarchar(Max)")]
         public string? Name { get; set; }

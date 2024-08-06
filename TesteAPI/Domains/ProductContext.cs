@@ -4,25 +4,21 @@ namespace TesteAPI.Domains
 {
     public class ProductContext : DbContext
     {
+        public ProductContext()
+        {
+
+        }
         public ProductContext (DbContextOptions<ProductContext> options) : base(options) 
         {
             
         }
 
-        public DbSet<Product> Product { get; set; } = null!;
+        public DbSet<Product> Product { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            modelBuilder.Entity<Product>().HasKey(x => x.IdProduct);
-
-            modelBuilder.Entity<Product>().HasData(
-                new Product
-                {
-                    IdProduct = 1,
-                    Name = "Leite",
-                    Price = 4,
-                }
-                ) ;
+            optionsBuilder.UseSqlServer("Data Source=NOTE07-SALA19\\SQLEXPRESS; Initial Catalog=TesteDb; user id=sa; password=Senai@134; TrustServerCertificate=True;");
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }
