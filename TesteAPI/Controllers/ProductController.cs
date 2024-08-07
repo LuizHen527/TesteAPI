@@ -26,5 +26,19 @@ namespace TesteAPI.Controllers
                 return BadRequest(e);
             }
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                return Ok(productRepository.GetById(id));
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e);
+            }
+        }
     }
 }

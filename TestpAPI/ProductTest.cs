@@ -1,4 +1,5 @@
 using Moq;
+using TesteAPI.Controllers;
 using TesteAPI.Domains;
 using TesteAPI.Interface;
 using TesteAPI.Repository;
@@ -7,6 +8,15 @@ namespace TestpAPI
 {
     public class ProductTest
     {
+        ProductController _productController;
+
+        public ProductContext _context = new ProductContext();
+
+        public ProductTest()
+        {
+            _productController = new ProductController();
+            _context = new ProductContext();
+        }
         //indica um metodo de teste de unidade
         [Fact]
         public void TestGet()
@@ -55,10 +65,41 @@ namespace TestpAPI
         [Fact]
         public void GetById()
         {
+            //Arrange
+            var product = new Product { IdProduct = Guid.NewGuid(), Name = "Leite", Price = 10 };
+
+            var productsList = new List<Product>();
+
+            var mockRepository = new Mock<IProductRepository>();
+
+            mockRepository.Setup(x => x.GetById(product.IdProduct)).Returns(product);
+
+            //Act
+            var result = mockRepository.Object.GetById(product.IdProduct);
+
+            //Assert
+            Assert.Equal(product, result);
 
         }
 
         //Delete
+        [Fact]
+        public void Delete()
+        {
+            //Arrage
+            var product = new Product { IdProduct = Guid.NewGuid(), Name = "Leite", Price = 10 };
+
+            var productsList = new List<Product>();
+
+            var mockRepository = new Mock<IProductRepository>();
+
+            mockRepository.Setup(x => x.Delete(product.IdProduct)).Callback<Product>(x => productsList.Add(product)); ;
+
+            mockRepository.Object.Delete(product.IdProduct);
+
+            //Assert
+            Assert.Contains(product, productsList);
+        }
 
         //Update
     }

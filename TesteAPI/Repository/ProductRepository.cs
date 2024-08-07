@@ -8,12 +8,14 @@ namespace TesteAPI.Repository
     {
         public ProductContext _context = new ProductContext();
 
+        
+
         public ProductRepository() 
         {
             _context = new ProductContext();
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             try
             {
@@ -51,9 +53,17 @@ namespace TesteAPI.Repository
             }
         }
 
-        public Product GetById(int id)
+        public Product GetById(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Product.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Post(Product product)
@@ -70,7 +80,9 @@ namespace TesteAPI.Repository
             }
         }
 
-        public void Put(int id, Product product)
+
+
+        public void Put(Guid id, Product product)
         {
             throw new NotImplementedException();
         }
